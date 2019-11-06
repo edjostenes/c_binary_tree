@@ -49,7 +49,7 @@ Node* search_position_to_insert(Node* node, int info)
 	}
 	else
 	{
-		printf("Que porra é essa?\n");
+		printf("Que porra Ã© essa?\n");
 		return NULL;
 	}
 }
@@ -63,9 +63,9 @@ bool insert_node(BinaryTree* bTree, int info)
 		return true;
 	}
 
-	Node* fatherNode = search_position_to_insert(bTree->root, info);
+	Node* parentNode = search_position_to_insert(bTree->root, info);
 
-	if (fatherNode == NULL)
+	if (parentNode == NULL)
 	{
 		printf("Not inserted: %d\n", info);
 		return false;
@@ -73,13 +73,13 @@ bool insert_node(BinaryTree* bTree, int info)
 
 	Node* newNode = create_node(info, NULL, NULL);
 
-	if (fatherNode->info > info)
+	if (parentNode->info > info)
 	{
-		fatherNode->left = newNode;
+		parentNode->left = newNode;
 	}
 	else
 	{
-		fatherNode->right = newNode;
+		parentNode->right = newNode;
 	}
 
 	bTree->lenght++;
